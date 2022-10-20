@@ -16,7 +16,6 @@ export class PnpServices implements IPnpServices {
     }
 
     public async createItem(listName: string, itemObject: any): Promise<any> {
-
         try {
             const iar: IItemAddResult = await this._sp.web.lists.getByTitle(listName).items.add(itemObject)
             return iar.data.Id;
@@ -54,5 +53,4 @@ export class PnpServices implements IPnpServices {
             return error;
         }
     }
-
 }

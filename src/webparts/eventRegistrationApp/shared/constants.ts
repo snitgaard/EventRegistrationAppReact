@@ -32,9 +32,9 @@ export let LIST_COLUMNS = [
         isResizable: true,
     },
     {
-        key: 'LevelOfKnowledge',
-        name: 'LevelOfKnowledge',
-        fieldName: 'LevelOfKnowledge',
+        key: 'LevelofKnowledge',
+        name: 'LevelofKnowledge',
+        fieldName: 'LevelofKnowledge',
         minWidth: 50,
         maxWidth: 100,
         isResizable: true,

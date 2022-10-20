@@ -114,8 +114,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
     try {
       await this._sp.deleteItem(this.props.listName, this.state.ListItem.ID)
         .then(() => {
-          this.callAndBinddDetailsList("Item Deleted Succesfully"),
-            this.setState({ status: "Item Deleted Successfully" });
+          this.setState({ status: "Item Deleted Successfully" });
         });
     } catch (error) { }
   }
@@ -158,7 +157,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
             <Dropdown
               placeholder='Select an option'
               label='Select level of knowledge'
-              options={ddlBatchOptions}
+              options={ddlLevelOfKnowledge}
               styles={dropdownStyles}
               selectedKey={this.state.ListItem.LevelofKnowledge}
               defaultValue={this.state.ListItem.LevelofKnowledge}
