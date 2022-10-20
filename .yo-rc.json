@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.15.2",
+    "libraryName": "event-registration-app-react",
+    "libraryId": "3b2dcdd7-54b9-4d5f-9276-878a9dbae6f9",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "event-registration-app-react",
+    "solutionShortDescription": "event-registration-app-react description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

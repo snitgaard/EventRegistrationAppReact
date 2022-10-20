@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "event-registration-app-react-client-side-solution",
+    "id": "3b2dcdd7-54b9-4d5f-9276-878a9dbae6f9",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.15.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "event-registration-app-react description"
+      },
+      "longDescription": {
+        "default": "event-registration-app-react description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "event-registration-app-react Feature",
+        "description": "The feature that activates elements of the event-registration-app-react solution.",
+        "id": "1e6dbdca-a20e-4444-bcae-8c8628ea912f",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/event-registration-app-react.sppkg"
+  }
+}
