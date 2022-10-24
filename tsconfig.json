@@ -20,7 +20,9 @@
       "./node_modules/@microsoft"
     ],
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "jest",
+      "node"
     ],
     "lib": [
       "es5",
