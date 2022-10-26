@@ -1,1 +1,2 @@
-// A file is required to be in the root of the /src directory by the TypeScript compiler
+require = require('esm')(module)
+module.exports = require('./app.js')
