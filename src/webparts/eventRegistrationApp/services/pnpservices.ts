@@ -19,9 +19,8 @@ export class PnpServices implements IPnpServices {
         try {
             const iar: IItemAddResult = await this._sp.web.lists.getByTitle(listName).items.add(itemObject)
             return iar.data.Id;
-        } catch (error) {
-            Promise.reject(error);
-            return error;
+        } catch (e) {
+            throw new Error("error")
         }
     }
     public async sp_getItems(listName: string): Promise<any> {

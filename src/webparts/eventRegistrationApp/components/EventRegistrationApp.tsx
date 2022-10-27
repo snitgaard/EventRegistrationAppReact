@@ -59,11 +59,11 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
       status: "Ready",
       ListItems: [],
       ListItem: {
-        ID: 0,
-        Title: "",
-        Email: "",
-        Batch: "",
-        LevelofKnowledge: "",
+        ID: null,
+        Title: null,
+        Email: null,
+        Batch: null,
+        LevelofKnowledge: null,
       }
     };
     this._sp = new PnpServices(this.props.context);
@@ -79,8 +79,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
   }
 
   private async callAndBinddDetailsList(message: string): Promise<any> {
-    await this._sp.getItems(this.props.listName).then(listItems => {
-      console.log(listItems);
+    await this._sp.sp_getItems(this.props.listName).then(listItems => {
       this.setState({
         ListItems: listItems,
         status: message
@@ -89,7 +88,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
   }
 
   private async _createItem(): Promise<any> {
-    await this._sp.createItem(this.props.listName, this.state.ListItem)
+    await this._sp.sp_createItem(this.props.listName, this.state.ListItem)
       .then(Id => {
         this.callAndBinddDetailsList("New Item Created Successfully with Id: " + Id)
       });
@@ -100,7 +99,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
   }
 
   private async _updateItem(): Promise<any> {
-    await this._sp.updateItem(this.props.listName, this.state.ListItem.ID, {
+    await this._sp.sp_updateItem(this.props.listName, this.state.ListItem.ID, {
       Title: this.state.ListItem.Title,
       Email: this.state.ListItem.Email,
       Batch: this.state.ListItem.Batch,
@@ -112,7 +111,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
 
   private async _deleteItem(): Promise<any> {
     try {
-      await this._sp.deleteItem(this.props.listName, this.state.ListItem.ID)
+      await this._sp.sp_deleteItem(this.props.listName, this.state.ListItem.ID)
         .then(() => {
           this.setState({ status: "Item Deleted Successfully" });
         });
