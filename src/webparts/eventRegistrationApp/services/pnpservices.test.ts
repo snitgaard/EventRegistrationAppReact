@@ -1,7 +1,13 @@
 import { WebPartContext } from "@microsoft/sp-webpart-base";
 import { IEventRegistrationAppProps } from "../components/IEventRegistrationAppProps";
-import { PnpServices } from "./pnpservices";
+import PnpServices from "./pnpservices";
 const listName: string = "SPFX Coding Event Registration"
+
+jest.mock('./pnpservices')
+it('should pass', () => {
+    const mockedClassInstance = new PnpServices(null);
+})
+
 
 /*
 describe('CRUD', () => {

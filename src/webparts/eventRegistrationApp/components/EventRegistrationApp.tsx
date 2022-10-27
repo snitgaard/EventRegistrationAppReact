@@ -79,7 +79,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
   }
 
   private async callAndBinddDetailsList(message: string): Promise<any> {
-    await this._sp.sp_getItems(this.props.listName).then(listItems => {
+    await this._sp.sp_getItems(this.props.listName).then((listItems: any) => {
       this.setState({
         ListItems: listItems,
         status: message
@@ -89,7 +89,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
 
   private async _createItem(): Promise<any> {
     await this._sp.sp_createItem(this.props.listName, this.state.ListItem)
-      .then(Id => {
+      .then((Id: string) => {
         this.callAndBinddDetailsList("New Item Created Successfully with Id: " + Id)
       });
   }
@@ -104,7 +104,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
       Email: this.state.ListItem.Email,
       Batch: this.state.ListItem.Batch,
       LevelofKnowledge: this.state.ListItem.LevelofKnowledge,
-    }).then(Id => {
+    }).then((Id: any) => {
       this.callAndBinddDetailsList(`Item ${Id} Updated Successfully`)
     })
   }

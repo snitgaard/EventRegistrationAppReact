@@ -9,7 +9,7 @@ export interface IPnpServices {
     sp_deleteItem(listName: string, itemId: number): Promise<any>;
 };
 
-export class PnpServices implements IPnpServices {
+export default class PnpServices implements IPnpServices {
     private _sp;
     constructor(context: WebPartContext) {
         this._sp = getSP(context);
