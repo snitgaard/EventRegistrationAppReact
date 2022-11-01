@@ -1,9 +1,9 @@
 {
   "extends": "./node_modules/@microsoft/rush-stack-compiler-4.2/includes/tsconfig-web.json",
   "compilerOptions": {
-    "target": "ES2016",
+    "target": "ES5",
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "jsx": "react",
     "declaration": true,
@@ -22,6 +22,7 @@
       "./node_modules/@microsoft"
     ],
     "types": [
+      "es6-promise",
       "webpack-env",
       "jest",
       "node"
@@ -35,22 +36,9 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/webparts/eventRegistrationApp/services/pnpservices.spec.tsx"  ],
   "exclude": [
     "node_modues"
   ],
   "esModuleInterop": true,
-  "jest": {
-    "watchPathIgnorePatterns": [
-      "node_modules",
-      ".jest-test-results.json"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules"
-    ],
-    "moduleNameMapper": {
-      "\\.(css)$": "<rootDir>/test/jest/__mocks__/styleMock.js",
-      "<rootDir>/node_modules/swiper/core/core.js": "<rootDir>/test/jest/__mocks__/styleMock.js"
-    }
-  }
 }

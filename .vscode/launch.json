@@ -5,7 +5,7 @@
       "name": "Hosted workbench",
       "type": "pwa-chrome",
       "request": "launch",
-      "url": "https://enter-your-SharePoint-site/_layouts/workbench.aspx",
+      "url": "https://narratechaps.sharepoint.com/sites/narratechaps/_layouts/15/workbench.aspx",
       "webRoot": "${workspaceRoot}",
       "sourceMaps": true,
       "sourceMapPathOverrides": {
@@ -16,7 +16,6 @@
       },
       "runtimeArgs": [
         "--remote-debugging-port=9222",
-        "-incognito"
       ]
     }
   ]

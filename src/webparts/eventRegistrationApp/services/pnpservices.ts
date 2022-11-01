@@ -1,7 +1,7 @@
 import { WebPartContext } from "@microsoft/sp-webpart-base"
 import { IItemAddResult } from "@pnp/sp/items"
+import { IEventRegistrationAppState } from "../components/IEventRegistrationAppState";
 import { getSP } from "./pnpjsConfig"
-
 export interface IPnpServices {
     sp_createItem(listName: string, itemObject: any): Promise<any>;
     sp_getItems(listName: string, columns: string[]): Promise<any>;
@@ -19,8 +19,9 @@ export default class PnpServices implements IPnpServices {
         try {
             const iar: IItemAddResult = await this._sp.web.lists.getByTitle(listName).items.add(itemObject)
             return iar.data.Id;
-        } catch (e) {
-            throw new Error("error")
+        } catch (error) {
+            Promise.reject(error);
+            return error;
         }
     }
     public async sp_getItems(listName: string): Promise<any> {

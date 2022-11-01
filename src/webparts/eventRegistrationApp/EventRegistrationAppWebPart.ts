@@ -11,6 +11,7 @@ import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import * as strings from 'EventRegistrationAppWebPartStrings';
 import EventRegistrationApp from './components/EventRegistrationApp';
 import { IEventRegistrationAppProps } from './components/IEventRegistrationAppProps';
+import { sp } from "@pnp/sp";
 
 export interface IEventRegistrationAppWebPartProps {
   description: string;
@@ -36,8 +37,11 @@ export default class EventRegistrationAppWebPart extends BaseClientSideWebPart<I
 
   protected onInit(): Promise<void> {
     this._environmentMessage = this._getEnvironmentMessage();
-
-    return super.onInit();
+    return super.onInit().then(_ => {
+      sp.setup({
+        spfxContext: this.context
+      })
+    });
   }
 
   private _getEnvironmentMessage(): string {

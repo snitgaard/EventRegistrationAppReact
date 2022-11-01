@@ -1,3 +1,5 @@
+const { ModuleKind } = require('typescript');
+
 require('@rushstack/eslint-config/patch/modern-module-resolution');
 module.exports = {
   extends: ['@microsoft/eslint-config-spfx/lib/profiles/react'],
@@ -348,6 +350,7 @@ module.exports = {
       ],
       rules: {
         'no-new': 0,
+        'no-debugger': "off",
         'class-name': 0,
         'export-name': 0,
         forin: 0,

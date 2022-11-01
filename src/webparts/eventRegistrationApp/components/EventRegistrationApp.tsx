@@ -20,9 +20,13 @@ import {
   DetailsListLayoutMode,
 } from 'office-ui-fabric-react'
 import { LIST_COLUMNS } from '../shared/constants';
-import { PnpServices } from '../services/pnpservices';
 import { getSP } from '../services/pnpjsConfig';
 import { IListItem } from '../models/IListItem';
+import PnpServices from '../services/pnpservices';
+import "@pnp/sp/webs";
+import "@pnp/sp/lists";
+import "@pnp/sp/items";
+import "@pnp/sp/batching";
 
 const stackTokens = { childrenGap: 50 };
 const addIcon: IIconProps = { iconName: "Add" }
@@ -59,13 +63,14 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
       status: "Ready",
       ListItems: [],
       ListItem: {
-        ID: null,
-        Title: null,
-        Email: null,
-        Batch: null,
-        LevelofKnowledge: null,
+        ID: 0,
+        Title: "",
+        Email: "",
+        Batch: "",
+        LevelofKnowledge: "",
       }
     };
+
     this._sp = new PnpServices(this.props.context);
     this._selection = new Selection({
       onSelectionChanged: () =>
@@ -78,7 +83,7 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
     return selectedItem;
   }
 
-  private async callAndBinddDetailsList(message: string): Promise<any> {
+  public async callAndBinddDetailsList(message: string): Promise<any> {
     await this._sp.sp_getItems(this.props.listName).then((listItems: any) => {
       this.setState({
         ListItems: listItems,
@@ -87,9 +92,10 @@ export default class EventRegistrationApp extends React.Component<IEventRegistra
     });
   }
 
-  private async _createItem(): Promise<any> {
+  public async _createItem(): Promise<any> {
     await this._sp.sp_createItem(this.props.listName, this.state.ListItem)
       .then((Id: string) => {
+        console.log(Id);
         this.callAndBinddDetailsList("New Item Created Successfully with Id: " + Id)
       });
   }
